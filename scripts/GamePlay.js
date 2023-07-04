@@ -386,7 +386,7 @@ that.updateOptions = function(){
 	    stalemate = currentColor, //originally true, but set to false as soon as options found
 	    check = false,
 	    checkmate = false; //in reality, just stalemate and check together
-
+		
 	options = response.allOptions;
 	//console.log("Options recieved: ");
 	//console.log(options);
@@ -443,13 +443,22 @@ that.updateOptions = function(){
 			type = "s";
 		}
 	}
+	winner = 'Game is on going'
 	if(check || checkmate || stalemate){
+		
+		if (checkmate == 'W'){
+			winner = 'B'
+		} else {
+			winner = 'W'
+		}
 		that.statusUpdate({msg : msg, type : type});
 	}
-	/*console.log("Status : ");
-	  console.log("Check : " + check);
-	  console.log("Stalemate : " + stalemate);
-	  console.log("Checkmate : " + checkmate);*/
+	
+	// console.log("Status : ");
+	// console.log("Check : " + check);
+	// console.log("Stalemate : " + stalemate);
+	// console.log("Checkmate : " + checkmate);
+	console.log("winner : " + winner);
 
 }
 /*
